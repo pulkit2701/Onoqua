@@ -1,0 +1,17 @@
+﻿@model List<Onoqua.Entities.Models.Group>
+
+<br />
+    <div class="panel panel-default">
+        <div class="panel-heading">Field is Attached to following Groups</div>
+        <div class="panel-body">
+
+            @foreach (var m in Model)
+            {
+                <div class="row col-md-10">
+                    @m.GroupName
+                </div>
+            }
+
+        </div>
+    </div>
+

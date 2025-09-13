@@ -1,0 +1,75 @@
+﻿@model Onoqua.Models.GroupModel
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Layouts/_configure.cshtml";
+}
+<form id="__AjaxAntiForgeryForm" action="#" method="post">@Html.AntiForgeryToken()</form>
+<script src="~/Scripts/GroupFields.js"></script>
+
+<div class="row container">
+    <div class="col-md-12 page-header">
+        <h3>Manage Group's Fields</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default" style="min-height:340px">
+                <div class="panel-body">
+                    <div class="row center-block">
+                        @using (Html.BeginForm("SearchGroupField", "DefineGroup", FormMethod.Post, new { @class = "form" }))
+                        {
+                        @Html.AntiForgeryToken()
+
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="searchGroup" placeholder="Search Groups">
+                            <div class="input-group-addon">
+                                <button type="submit" class="glyphicon glyphicon-search"></button>
+                            </div>
+                        </div>
+
+                        }
+
+                        @foreach (var a in UserProfile.Groups.Groups)
+                        {
+                        <button type="button" class="btn btn-link" onclick="GetGroup(@a.GroupID)">@a.GroupName</button>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-12" id="SelectGroup">
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Current Attached Fields</h3>
+                                </div>
+                                <div class="panel-body" style="min-height:300px">
+                                    <div class="row">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <br />
+                <button type="submit" class="btn btn-info col-md-2 pull-left" name="submit" value="-1">Go Back</button>
+                @*<button type="submit" class="btn btn-info col-md-2 pull-right" name="submit" value="1">Save</button>*@
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>

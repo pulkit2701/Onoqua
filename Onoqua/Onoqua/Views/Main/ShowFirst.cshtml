@@ -1,0 +1,63 @@
+﻿@model Onoqua.Models.ViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="nav navbar-nav"><h1>Onoqua</h1></div>
+                @*<a class="navbar-brand" href="#">Onoqua<</a>*@
+            </div>
+            <div class="nav navbar-nav navbar-right ">
+                @Html.Label(UserProfile.LoggedInUser.FirstName)
+                @Html.ActionLink("Logout", "Logout");
+            </div><!--/.nav-collapse -->
+
+        </div>
+    </nav>
+
+
+    <div class="container">
+        @using (Html.BeginForm("Show", "Main", FormMethod.Post, new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div id="HomeBody">
+
+
+                <h4>@Model.CurrentForm.FormTitle</h4>
+                <div>
+                    @Html.Partial("_show", Model)
+                </div>
+          
+
+            </div>
+
+
+
+        }
+
+
+
+
+    </div> <!-- /container -->
+
+</body>
+</html>

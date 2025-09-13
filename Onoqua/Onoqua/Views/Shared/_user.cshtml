@@ -1,0 +1,15 @@
+﻿@model Onoqua.Entities.Models.Entity
+<label>First Name</label>
+@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+<label>Last Name</label>
+@Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+<label>Email ID</label>
+@Html.TextBoxFor(m => m.emailID, new { @type = "email", @class = "form-control", @placeholder = "email" })
+<label>Password</label>
+@Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control", @placeholder = "password" })
+<label>Re-enter Password</label>
+@Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control", @placeholder = "Re-Enter password" })
+
+
+
+

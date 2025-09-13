@@ -1,0 +1,14 @@
+﻿@model Onoqua.Entities.Models.Address
+@Html.TextBoxFor(m => m.Line1, new { @class = "form-control", @placeholder = "Address Line 1" })
+<br />
+@Html.TextBoxFor(m => m.Line2, new { @class = "form-control", @placeholder = "Address Line 2" })
+<br />
+@Html.TextBoxFor(m => m.Line3, new { @class = "form-control", @placeholder = "Address Line 3" })
+<label>City</label>
+@Html.TextBoxFor(m => m.City, new { @class = "form-control", @placeholder = "City" })
+<label>State</label>
+@Html.TextBoxFor(m => m.State, new { @class = "form-control", @placeholder = "State" })
+<label>Zip</label>
+@Html.TextBoxFor(m => m.Zip, new { @class = "form-control", @placeholder = "Zip" })
+<label>Address Type</label>
+@Html.TextBoxFor(m => m.AddressType, new { @class = "form-control", @placeholder = "Address Type" })

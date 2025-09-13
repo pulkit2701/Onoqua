@@ -1,0 +1,48 @@
+﻿@model List<Onoqua.Entities.Models.Process>
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Layouts/_Main.cshtml";
+}
+
+<div class="row" id="HomeBody">
+    @using (Html.BeginForm("Index", "Main", FormMethod.Post, new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Select Modules</h4>
+            </div>
+            <div class="panel-body">
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src=@Model[i].LogoURL style="width:140px; ">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            @Html.HiddenFor(m=>m[i].ProcessID)
+                            @Html.CheckBoxFor(m => m[i].IsSelected)
+                            @Model[i].ProcessName
+                        </h4>
+                        @Model[i].Summary
+                    </div>
+                </div>
+                }
+            </div>
+
+
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <button type="submit" value="Create" class="btn btn-info pull-right" id="@Model.Count()">Create</button>
+            </div>
+        </div>
+
+    }
+</div>

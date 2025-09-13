@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LoggedLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <div class="container px-4 py-5" id="custom-cards">
+            <h2 class="pb-2 border-bottom"></h2>
+
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+                <div class="col d-flex align-items-start">
+                    <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"></use></svg>
+
+                    <div>
+                        <h2 class="mb-0">Register</h2>
+                        <p>Register your Vehicle</p>
+                        <div class="text-end">
+                            @Html.ActionLink("Go   »", "Index","Default", new { area = "EV" }, new { @class = "btn btn-outline-dark btn-sm" })
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

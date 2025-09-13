@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onoqua", "Onoqua\Onoqua.csproj", "{B34F0FFC-1897-4608-AD2A-4F2BDE1BBE22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onoqua.Entities", "Onoqua.Entities\Onoqua.Entities.csproj", "{EF7DBF6D-BF03-4C39-974C-F09DC61784D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A3.Common", "A3.Common\A3.Common.csproj", "{CA9D1A01-3590-4A9F-AC0E-273FE493188E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{84BDED9D-588C-490D-A1AB-816735400B89}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Onoqua.DB", "Onoqua.DB\Onoqua.DB.sqlproj", "{EE9503F3-661C-4AF2-87BA-CA21FBCA0F2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B34F0FFC-1897-4608-AD2A-4F2BDE1BBE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B34F0FFC-1897-4608-AD2A-4F2BDE1BBE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B34F0FFC-1897-4608-AD2A-4F2BDE1BBE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B34F0FFC-1897-4608-AD2A-4F2BDE1BBE22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF7DBF6D-BF03-4C39-974C-F09DC61784D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF7DBF6D-BF03-4C39-974C-F09DC61784D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF7DBF6D-BF03-4C39-974C-F09DC61784D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7DBF6D-BF03-4C39-974C-F09DC61784D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9D1A01-3590-4A9F-AC0E-273FE493188E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9D1A01-3590-4A9F-AC0E-273FE493188E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9D1A01-3590-4A9F-AC0E-273FE493188E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9D1A01-3590-4A9F-AC0E-273FE493188E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84BDED9D-588C-490D-A1AB-816735400B89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84BDED9D-588C-490D-A1AB-816735400B89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84BDED9D-588C-490D-A1AB-816735400B89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84BDED9D-588C-490D-A1AB-816735400B89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9503F3-661C-4AF2-87BA-CA21FBCA0F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9503F3-661C-4AF2-87BA-CA21FBCA0F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9503F3-661C-4AF2-87BA-CA21FBCA0F2A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EE9503F3-661C-4AF2-87BA-CA21FBCA0F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9503F3-661C-4AF2-87BA-CA21FBCA0F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9503F3-661C-4AF2-87BA-CA21FBCA0F2A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal

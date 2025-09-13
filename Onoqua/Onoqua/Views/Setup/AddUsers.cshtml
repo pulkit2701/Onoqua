@@ -1,0 +1,51 @@
+﻿@model Onoqua.Models.EntityModel
+
+@{
+    ViewBag.Title = "AddUsers";
+    Layout = "~/Views/Layouts/_setup.cshtml";
+}
+
+<div>
+    @using (Html.BeginForm("AddUser", "Setup", FormMethod.Post, new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Manage Users</h4>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    @Html.Partial("_user", Model.Entity)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item disabled">
+                                    Existing Users
+                                </a>
+                                @for (int i = 0; i < Model.ExistingUsers.Count; i++)
+                                {
+                                    <a href="#" class="list-group-item">@Model.ExistingUsers[i].FirstName</a>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <button type="submit" value="Next" class="btn btn-info pull-right">Save</button>
+            </div>
+        </div>
+    }
+</div>
+
+
+

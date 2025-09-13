@@ -1,0 +1,59 @@
+﻿@model A3.Model.Entity
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoggedLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+<div>
+    @using (Html.BeginForm("ValidateUser", "Home", FormMethod.Post, new { @class = "form "}))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container px-4 py-5" id="custom-cards">
+            @*<h2 class="pb-2 border-bottom">Define Process</h2>*@
+            <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm ">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Log in</h4>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row mb-3">
+                                <input class="form-control" data-val="true" data-val-length="The field emailID must be a string with a maximum length of 100." data-val-length-max="100" id="emailID" name="emailID" placeholder="email" type="email" value="" required>
+                            </div>
+
+                            <div class="row mb-3">
+
+                                <input class="form-control" data-val="true" data-val-length="The field Password must be a string with a maximum length of 50." data-val-length-max="50" id="Password" name="Password" placeholder="Password" type="password" required>
+                            </div>
+                            <div class="text-end">
+
+                                <button type="submit" value="Next" class="btn btn-primary">Login   &raquo;</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+
+    }
+</div>
+
+

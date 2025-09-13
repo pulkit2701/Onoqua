@@ -1,0 +1,64 @@
+﻿@model A3.Model.Process
+@{
+    ViewBag.Title = "Setup";
+    Layout = "~/Views/Shared/_LoggedLayout.cshtml";
+}
+
+<div>
+    @using (Html.BeginForm("index", "Modules", FormMethod.Post, new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+
+        <div class="container px-4 py-5" id="custom-cards">
+            <h2 class="pb-2 border-bottom">Set up</h2>
+
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+                <div class="col d-flex align-items-start">
+                    <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"></use></svg>
+
+                    <div>
+                        <h2 class="mb-0">Manage Process</h2>
+                        <p>Select this option to manage your Processes/Modules</p>
+                        <div class="text-end">
+                            @Html.ActionLink("Go   »", "Index", "Modules", new { area = "A3Admin" }, new { @class = "btn btn-outline-dark btn-sm" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"></use></svg>
+                    <div>
+                        <h2 class="mb-0">Manage Fields</h2>
+                        <p>Manage fields to be used in modules/processes.</p>
+                        <div class="text-end">
+                            @Html.ActionLink("Go   »", "Index", "DefineField", new { area = "A3Admin" }, new { @class = "btn btn-outline-dark btn-sm" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"></use></svg>
+                    <div>
+                        <h2 class="mb-0">Manage Groups</h2>
+                        <p>Categorized fields into groups to have better form organization</p>
+                        <div class="text-end">
+                            @Html.ActionLink("Go   »", "Index", "DefineGroups", new { area = "A3Admin" }, new { @class = "btn btn-outline-dark btn-sm" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#home"></use></svg>
+                    <div>
+                        <h2 class="mb-0">Define Queries</h2>
+                        <p>Define your database queries to store and extract data</p>
+                        <div class="text-end">
+                            @Html.ActionLink("Go   »", "Index", "Modules", new { area = "A3Admin" }, new { @class = "btn btn-outline-dark btn-sm" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Forms] (
+    [FormID]    NUMERIC (18)  IDENTITY (1, 1) NOT NULL,
+    [FormTitle] VARCHAR (100) NOT NULL,
+    CONSTRAINT [PK_Forms] PRIMARY KEY CLUSTERED ([FormID] ASC)
+);
+

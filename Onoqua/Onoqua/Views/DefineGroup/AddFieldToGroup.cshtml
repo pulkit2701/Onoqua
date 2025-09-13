@@ -1,0 +1,11 @@
+﻿@model List<Onoqua.Entities.Models.Field>
+@using (Html.BeginForm("SelectedGroup", "DefineGroup", FormMethod.Post, new { @class = "form" }))
+{
+    @Html.AntiForgeryToken();
+    @foreach (var a in Model)
+    {
+        <div class="input-group">
+            <h3>@a.FieldName</h3>
+        </div>
+    }
+}

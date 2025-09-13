@@ -1,0 +1,85 @@
+﻿@model Onoqua.Entities.Models.Field
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Layouts/_configure.cshtml";
+}
+<script src="~/Scripts/DefineFields.js"></script>
+<div class="row container">
+    <div class="col-md-12" style="background-color:lightgray">
+        <h3>Define Fields</h3>
+    </div>
+    <div class="row col-md-12">
+        <div class="col-md-4">
+            @using (Html.BeginForm("SearchField", "DefineFields", FormMethod.Post, new { @class = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <br />
+                <div class="panel panel-default" style="min-height:300px">
+                    <div class="panel-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="searchField" placeholder="Search Field">
+                            <div class="input-group-addon">
+                                <button type="submit" class="glyphicon glyphicon-search"></button>
+                            </div>
+                        </div>
+
+                        <div class="list-group">
+                            @foreach (var a in UserProfile.Fields)
+                            {
+                                <div class="row">
+                                    <button type="button" class="btn btn-link" onclick="GetField(@a.FieldID)">@a.FieldName</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <br/>
+            <div class="row" style="min-height:300px">
+                <div class="panel panel-default" style="min-height:300px">
+                    <div class="panel-heading">Field</div>
+                    <div class="panel-body">
+                        <div class="col-md-10">
+                            @using (Html.BeginForm("SaveField", "DefineFields", FormMethod.Post, new { @class = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="row">
+                                    <h5>Field Name</h5>
+
+                                    @Html.TextBoxFor(m => m.FieldName, new { @class = "form-control", @placeholder = "Field Name" })
+                                </div>
+                                <div class="row">
+                                    <h5>Field Type</h5>
+                                    <div class="radio">
+                                        @foreach (var ft in UserProfile.FieldTypes)
+                                        {
+                                            <label>
+                                                <input type="radio" name="FieldType" value="@ft">
+                                                @ft
+                                            </label>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <br />
+                                    <button type="submit" class="btn btn-info col-md-2 pull-left" name="submit" value="-1">Go Back</button>
+                                    <button type="submit" class="btn btn-info col-md-2 pull-right" name="submit" value="1">Save</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="fieldResult">
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

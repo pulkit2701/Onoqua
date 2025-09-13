@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LoggedLayout.cshtml";
+}
+
+<div>
+    @using (Html.BeginForm("index", "Modules", FormMethod.Post, new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="container px-4 py-5" id="custom-cards">
+            <h2 class="pb-2 border-bottom">Processes</h2>
+
+
+            <div class="row col-md-3">
+
+
+
+                <button type="submit" class="btn btn-outline-dark btn-lg m-2" name="ProcessKey" value="-1">
+                    <h4 class="fw-bold">Create New</h4>
+                </button>
+
+                @foreach (var a in UserProfile.Processes)
+                {
+
+                    <button type="submit" class="btn btn-outline-dark btn-lg  m-2" name="ProcessKey" value="@a.ProcessID">
+                        <h4 class="fw-bold">@a.ProcessName</h4>
+                    </button>
+                }
+
+            </div>
+        </div>
+
+        @*<div class="container px-3 py-4" id="custom-cards">
+                <h2 class="pb-2 border-bottom">Define Process</h2>
+
+                <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+                    <button type="submit" class="btn btn-dark m-3" name="ProcessKey" value="-1">
+                        <div class="col">
+                            <div class="card card-cover h-25 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+                                <div class="d-flex flex-column h-50 p-5 pb-3 text-white text-shadow-1">
+                                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Create New</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+
+                    @foreach (var a in UserProfile.Processes)
+                    {
+                        <button type="submit" class="btn btn-dark m-3" name="ProcessKey" value="@a.ProcessID">
+                            <div class="col">
+                                <div class="card card-cover h-25 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+                                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">@a.ProcessName</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    }
+
+
+                </div>
+            </div>*@
+
+
+
+
+    }
+</div>

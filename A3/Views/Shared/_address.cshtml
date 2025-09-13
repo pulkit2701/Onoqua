@@ -1,0 +1,26 @@
+﻿@model A3.Model.Address
+
+<div class="row mb-3">
+    @Html.TextBoxFor(m => m.Line1, new { @class = "form-control", @placeholder = "Address Line 1" })
+</div>
+<div class="row mb-3">
+    @Html.TextBoxFor(m => m.Line2, new { @class = "form-control", @placeholder = "Address Line 2" })
+</div>
+<div class="row mb-3">
+    @*@Html.TextBoxFor(m => m.Line3, new { @class = "form-control", @placeholder = "Address Line 3" })*@
+    
+    @Html.TextBoxFor(m => m.City, new { @class = "form-control", @placeholder = "City" })
+</div>
+<div class="row mb-3">
+    
+    @Html.TextBoxFor(m => m.State, new { @class = "form-control", @placeholder = "State" })
+</div>
+<div class="row mb-3">
+    
+    @Html.TextBoxFor(m => m.Zip, new { @class = "form-control", @placeholder = "Zip" })
+</div>
+<div class="row mb-3">
+    
+    @Html.TextBoxFor(m => m.AddressType, new { @class = "form-control", @placeholder = "Address Type" })
+
+</div>

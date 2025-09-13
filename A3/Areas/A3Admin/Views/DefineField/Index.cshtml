@@ -1,0 +1,138 @@
+﻿@model A3.Model.Field
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LoggedLayout.cshtml";
+}
+
+<div>
+
+
+    <div class="container px-4 py-5" id="custom-cards">
+        <h2 class="pb-2 border-bottom">Manage Fields</h2>
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <div class="input-group mb-3">
+                                    @Html.ActionLink("Create New", "Index", "DefineField", new { area = "A3Admin" }, new { @class = "btn  btn-outline-dark m-2" })
+
+
+                                </div>
+                            </li>
+                            <li class="nav-item">
+
+                                @using (Html.BeginForm("Search", "DefineField", FormMethod.Post, new { @class = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="input-group mb-3">
+                                        @Html.TextBoxFor(m => m.FieldName, new { @class = "form-control", @placeholder = "Search" })
+                                        @*@Html.ActionLink("Go", "Search", "DefineField", new { area = "A3Admin" }, new { @class = "bi bi-search  btn btn-outline-dark" })*@
+                                        <div class="text-end">
+
+                                            <button type="submit" class="bi bi-search  btn btn-outline-dark">Go</button>
+
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+
+
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 ">
+                    <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+
+                    @using (Html.BeginForm("Index", "DefineField", FormMethod.Post, new { @class = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+
+                        <div class="container px-4 py-5" id="custom-cards">
+
+                            <div class="row row-cols-1 row-cols-md-2 mb-3">
+                                <div class="col">
+                                    <div class="card mb-4 rounded-3 shadow-sm ">
+                                        <div class="card-header py-3 text-center">
+                                            <h4 class="my-0 fw-normal">Field Definition</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            @Html.TextBoxFor(m => m.FieldName, new { @class = "form-control", @placeholder = "Field Name" })
+
+                                            <div class="my-3">
+
+                                                @foreach (var ft in UserProfile.FieldTypes)
+                                                {
+
+                                                    <div class="form-check">
+                                                        @Html.RadioButtonFor(m => m.FieldType, ft, new { @class = "form-check-input" })
+                                                        @*<input id="@ft" name="FieldType" type="radio" class="form-check-input" required>*@
+                                                        <label class="form-check-label" for="@ft">@ft</label>
+                                                    </div>
+
+                                                }
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="text-end">
+
+                                            <button type="submit" value="Next" class="btn btn-primary  m-3">Save   &raquo;</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+                        @*<div class="row mb-3 gy-3 col-md-5 text-center">
+
+                                @Html.TextBoxFor(m => m.FieldName, new { @class = "form-control", @placeholder = "Field Name" })
+                                <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group ">
+                                    @foreach (var ft in UserProfile.FieldTypes)
+                                    {
+                                        <input type="radio" class="btn-check" name="FieldType" value="@ft" id="@ft" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="@ft">@ft</label>
+                                    }
+
+                                </div>
+                            </div>*@
+
+
+                    }
+
+                    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1072" height="452" style="display: block; width: 1072px; height: 452px;"></canvas>
+
+
+                </main>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,25 @@
+﻿@model A3.Model.Entity
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="p-5 mb-4 bg-dark rounded-3 ">
+    <div class="text-white text-center mb-5">
+        <h1>G R A P E V I N E</h1>
+    </div>
+
+    <p>
+
+
+        <br />
+        <br />
+        <br />
+
+        @Html.ActionLink("Login »", "Login", "Home", "", new { @class = "btn btn-outline-light my-2" })
+        @Html.ActionLink("Register »", "Index", "Default", new { area = "A3Admin" }, new { @class = "btn btn-outline-light my-2" })
+
+    </p>
+</div>
+

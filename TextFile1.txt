@@ -1,0 +1,57 @@
+﻿<h4>@Model.CurrentForm.FormTitle</h4>
+                <div>
+                    <div class="row">
+                        @{
+            Html.HiddenFor(m => m.CurrentFormId);
+            
+            foreach (var flds in Model.Groups)
+            {
+                int i = 0;
+                <div class="@flds.GroupName">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            @flds.GroupName
+                        </div>
+                        <div class="panel-body">
+                            @foreach (var f in Model.Fields)
+                            {
+                                if (f.GroupID == flds.GroupID)
+                                {
+                                    <div class=@f.FieldUIClass>
+                                        @*@Html.DisplayTextFor(n => f.FieldID)*@
+                                        @*@Html.DisplayTextFor(n => f.FieldName)*@
+                                        @*@Html.TextBoxFor(n => @Model.Fields[i].FieldID)*@
+                                        @Html.HiddenFor(n => f.FieldID)
+                                        <label>@f.FieldName</label>
+                                        @Html.TextBoxFor(n => f.FieldValue, new { @class = "form-control", @type = f.FieldType })
+                                        @*@Html.HiddenFor(n=> @Model.Fields[0].FieldID)*@
+                                    </div>
+                                }
+                                i++;
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="col-md-12">
+                <div class="row">
+                    <br />
+                    <br />
+                    @if (Model.FirstFormID != Model.CurrentFormId)
+                    {
+                        <button type="submit" class="btn btn-info btn-lg col-md-2 pull-left" name="btnValue" value="-1">Previous</button>
+                    }
+                    @if (Model.LastFormID == Model.CurrentFormId)
+                    {
+                        <button type="submit" class="btn btn-info btn-lg col-md-2 pull-right" name="btnValue" value="0">Submit</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-info btn-lg col-md-2 pull-right" name="btnValue" value="1">Next</button>
+                    }
+                </div>
+            </div>
+                        }
+
+                    </div>
+                </div>

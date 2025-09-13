@@ -1,0 +1,106 @@
+﻿@model A3.Model.Group
+<div class="container px-4 py-5" id="groupDefinition">
+
+
+
+    <div class="row row-cols-1 row-cols-md-2 mb-3">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm ">
+                <div class="card-header py-3 text-center">
+                    <h5 class="my-0 fw-normal">Groups Definition</h5>
+                </div>
+                <div class="card-body">
+                    @Html.TextBoxFor(m => m.GroupName, new { @class = "form-control", @placeholder = "Group Name", @id = "GName" })
+                    @Html.HiddenFor(m => m.GroupID, new { @id = "GID" })
+
+
+
+
+
+
+
+                </div>
+                <div class="text-end">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add Fields to Group
+                    </button>
+                    <button type="submit" value="Next" class="btn btn-primary  m-3">Save   &raquo;</button>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm ">
+                <div class="card-header py-3 text-center">
+                    <h5 class="my-0 fw-normal">Fields in this Group</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row pull-left">
+                        @foreach (var i in Model.GroupFields)
+                        {
+                            <div class="col-md-8">
+                                <label for="exampleFormControlInput1" class="form-label">@i.Field.FieldName</label>
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="exampleFormControlInput1" class="form-label">@i.Field.FieldType</label>
+
+                            </div>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"> Add Field to Group </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="fieldsToAdd">
+                <div class="row">
+
+
+                    <div class="mb-3">
+                        <div class="col">
+
+                            <div class="card-body">
+                                @Html.TextBoxFor(m => m.GroupName, new { @class = "form-control", @placeholder = "Search Field", @id = "FName" })
+                                @Html.HiddenFor(m => m.GroupID, new { @id = "FID" })
+
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

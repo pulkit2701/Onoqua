@@ -1,0 +1,61 @@
+﻿@model Onoqua.Entities.Models.Process
+
+@{
+    ViewBag.Title = "DefineProcess";
+    Layout = "~/Views/Layouts/_configure.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-md-12" style="background-color:lightgray">
+        <h3>Define Process</h3>
+    </div>
+
+    <div class="row col-md-12">
+        <div class="col-md-2">
+            @using (Html.BeginForm("SelectProcess", "Configure", FormMethod.Post, new { @class = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <button type="submit" class="btn-link" name="ProcessKey" value="-1">Create New</button>
+                    <h5>Select Process</h5>
+                    <div class="list-group">
+                        @foreach (var a in UserProfile.ProcessModel.Processes)
+                        {
+                            <button type="submit" class="list-group-item btn btn-sm btn-link" name="ProcessKey" value="@a.Key">@a.Value</button>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            @using (Html.BeginForm("SaveProcess", "Configure", FormMethod.Post, new { @class = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <h6>Process Name</h6>
+                    @Html.HiddenFor(m => m.ProcessID)
+                    @Html.TextBoxFor(m => m.ProcessName, new { @class = "form-control", @placeholder = "Process Name" })
+                </div>
+                <div class="row">
+                    <h6>Summary</h6>
+                    @Html.TextAreaFor(m => m.Summary, new { @class = "form-control", @placeholder = "Summary" })
+                </div>
+                <div class="row">
+                    <h6>LogoUrl</h6>
+                    @Html.TextBoxFor(m => m.LogoURL, new { @class = "form-control", @placeholder = "Logo" })
+                </div>
+                <div class="row">
+                    <br />
+                    <button type="submit" class="btn btn-info col-md-2 pull-left" name="submit" value="-1">Go Back</button>
+                    <button type="submit" class="btn btn-info col-md-2 pull-right" name="submit" value="1">Save</button>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>

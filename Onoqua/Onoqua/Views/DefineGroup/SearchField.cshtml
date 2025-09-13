@@ -1,0 +1,65 @@
+﻿@model Onoqua.Models.GroupModel
+<div style="min-height:200px">
+    <div class="row center-block">
+        <div class="col-md-6">
+            <h4>Field Name</h4>
+        </div>
+        <div class="col-md-3">
+            <h4>Priority</h4>
+        </div>
+    </div>
+    @foreach (var i in Model.Fields)
+    {
+        <div class="row center-block fieldSearch">
+            <div class="col-md-6">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="fieldCheckBox" value="@i.FieldID"> @i.FieldName
+
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input class="form-control" type="number" name="@i.FieldID" />
+            </div>
+        </div>
+
+    }
+
+    @*<table class="table table-bordered" id="fieldSearch">
+            <thead>
+                <tr>
+                    <th>Field Name</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            @foreach (var i in Model.Fields)
+            {
+                <tr>
+                    <td>
+
+                        <div class="checkbox">
+
+
+                            <label>
+                                <input type="checkbox" name="fieldCheckBox" value="@i.FieldID"> @i.FieldName
+
+                            </label>
+
+                        </div>
+                    </td>
+                    <td>
+
+                        <input class="form-control" type="number" name="@i.FieldID"  />
+
+                    </td>
+                </tr>
+
+
+
+            }
+        </table>*@
+    <div class="bottom-right">
+        <button type="button" class="btn btn-info pull-right" onclick="AddFieldsToGroup(@Model.SelectedGroup.GroupID)">Add Fields to Group</button>
+    </div>
+</div>

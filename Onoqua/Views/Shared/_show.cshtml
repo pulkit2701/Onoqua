@@ -1,0 +1,64 @@
+﻿@model Onoqua.Models.ViewModel
+<div class="row">
+    @{
+        Html.HiddenFor(m => m.CurrentFormId);
+        int b = 0;
+
+        while (Model.Fields.Count > b)
+        {
+            if (Model.Fields[b].FormID == Model.CurrentFormId)
+            {
+                var grpID = @Model.Fields[b].GroupID;
+                <div class="@Model.Fields[b].UIClass">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            @Model.Fields[b].GroupName
+                        </div>
+                        <div class="panel-body">
+
+
+                            @while (Model.Fields.Count > b && grpID == Model.Fields[b].GroupID)
+                            {
+
+                                <div class=@Model.Fields[b].FieldUIClass>
+                                    @Html.DisplayTextFor(n => n.Fields[b].FieldID)
+                                    @Html.DisplayTextFor(n => n.Fields[b].FieldName)
+                                    @Html.TextBoxFor(n => n.Fields[b].FieldID)
+                                    <label>@Model.Fields[b].FieldName</label>
+                                    @Html.TextBoxFor(n => n.Fields[b].FieldValue, new { @class = "form-control", @type = Model.Fields[b].FieldType })
+                                </div>
+                                b++;
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+            else
+            {
+                b++;
+            }
+        }
+        <div class="col-md-12">
+            <div class="row">
+                <br />
+                <br />
+                @if (Model.FirstFormID != Model.CurrentFormId)
+                {
+                    <button type="submit" class="btn btn-info btn-lg col-md-2 pull-left" name="btnValue" value="-1">Previous</button>
+                }
+                @if (Model.LastFormID == Model.CurrentFormId)
+                {
+                    <button type="submit" class="btn btn-info btn-lg col-md-2 pull-right" name="btnValue" value="0">Submit</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-info btn-lg col-md-2 pull-right" name="btnValue" value="1">Next</button>
+                }
+            </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,26 @@
+﻿@model List<Onoqua.Entities.Models.Form>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-2">
+            @using (Html.BeginForm("Show", "Default", FormMethod.Post, new { @class = "form" }))
+            {
+                foreach (var i in Model)
+                {
+                    <button type="submit" class="btn btn-info" name="formID" value="@i.FormID">@i.FormTitle</button>
+                }
+            }
+        </div>
+    </div>
+</body>
+</html>

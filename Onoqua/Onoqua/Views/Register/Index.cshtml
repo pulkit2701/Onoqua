@@ -1,0 +1,41 @@
+﻿@model Onoqua.Entities.Models.Client
+<div>
+    @using (Html.BeginForm("register", "Register", FormMethod.Post, new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Register</h4>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <label>Company</label>
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Company Name" })
+                                    @Html.Partial("_user", Model.Entities[0])
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <label>Address</label>
+                                    @Html.Partial("_address", Model.Entities[0].Address)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <button type="submit" value="Next" class="btn btn-info pull-right">Next</button>
+            </div>
+        </div>
+    }
+</div>
